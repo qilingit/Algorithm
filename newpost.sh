@@ -10,8 +10,8 @@ name=$@
 # Replace space with hyphen
 folderName=${name// /-}
 
-# Java file name
-fileName="$folderName.java"
+# md file name
+fileName="$folderName.md"
 
 folderPath=$PWD/$folderName
 filePath=$folderPath/$fileName
@@ -23,9 +23,27 @@ else
     mkdir ./$folderName
 fi
 
-# Create java file and fill with pubic class
+# Create md file and fill with problem title
 if [ -d $$filePath ]; then
     echo "File $filePath already exist"
 else
-    echo "public class " > $filePath
+	#"# $name\n\n ## Description \n\n ## Given skeleton solution \n\n ## idea \n\n ## Solution \n\n ## Result \n\n ## Conclusion" > $filePath
+
+echo "# $name
+
+## Description
+Problem: 
+## Given skeleton solution
+```
+
+```
+## idea
+
+## Solution
+```
+```
+## Result
+
+## Conclusion
+"> $filePath
 fi
